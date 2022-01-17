@@ -44,8 +44,8 @@ pipeline {
 node {
     stage('Execute Image'){
         def customImage = docker.build("ganeshviji1019/bsafe-application:latest")
-        customImage.inside {
-           sh "docker run $registry:latest"
+        steps{
+          sh "docker run $registry:latest"
         }
     }
 }
