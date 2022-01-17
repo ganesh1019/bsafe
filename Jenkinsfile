@@ -45,7 +45,7 @@ node {
     stage('Execute Image'){
         def customImage = docker.build("ganeshviji1019/bsafe-application:latest")
         customImage.inside {
-            sh 'Code inside Container'
+           sh "docker run $registry:latest"
         }
     }
 }
