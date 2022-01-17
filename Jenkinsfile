@@ -39,16 +39,15 @@ pipeline {
             }
         }
        }
+
+         stage('Execute Image'){
+               steps{
+                 sh "docker run $registry:latest"
+               }
+           }
   }
 }
-node {
-    stage('Execute Image'){
-        def customImage = docker.build("ganeshviji1019/bsafe-application:latest")
-        steps{
-          sh "docker run $registry:latest"
-        }
-    }
-}
+
 node{
    stage('Remove image') {
              steps{
