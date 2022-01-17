@@ -14,20 +14,14 @@ pipeline {
                 git branch: 'main', credentialsId: 'jenkins1', url: 'https://github.com/ganesh1019/bsafe.git'
             }
         }
-        stage('Build the Application') {
+        stage('Build Application and Run Tests') {
                         steps{
                             script {
                                 sh 'mvn clean install'
                             }
                          }
         }
-         stage('Build the Application') {
-                                steps{
-                                    script {
-                                        sh 'mvn clean test'
-                                    }
-                                 }
-                }
+
         stage('Building Docker image') {
         steps{
             script {
