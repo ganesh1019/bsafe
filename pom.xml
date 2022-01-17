@@ -5,7 +5,7 @@
     <groupId>org.springframework</groupId>
     <artifactId>com.simplilearn.bsafe</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.0</version>
+    <version>${BUILD_NUMBER}</version>
 
     <!-- tag::joda[] -->
      <properties>
