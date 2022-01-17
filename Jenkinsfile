@@ -43,14 +43,16 @@ pipeline {
       stage('Execute Image') {
          steps {
             script {
+               sh 'docker images'
                sh 'docker run $registry:latest'
             }
          }
       }
 
-    stage('Remove image') {
+    stage('Stop and Remove All containers') {
           steps {
-                sh 'docker rmi $registry:latest'
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
           }
        }
    }
