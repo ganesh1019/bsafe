@@ -39,7 +39,7 @@ pipeline {
             }
          }
       }
-
+    node {
       stage('Execute Image') {
          steps {
             script {
@@ -47,15 +47,15 @@ pipeline {
             }
          }
       }
+    }
+    stage('Remove image') {
+          steps {
+             script {
+                sh "docker rmi $registry:latest"
+             }
+          }
+       }
    }
 }
 
-node {
-   stage('Remove image') {
-      steps {
-         script {
-            sh "docker rmi $registry:latest"
-         }
-      }
-   }
-}
+
