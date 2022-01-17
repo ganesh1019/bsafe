@@ -39,12 +39,6 @@ pipeline {
             }
         }
        }
-
-       stage('Remove image') {
-             steps{
-               sh "docker rmi $registry:latest"
-             }
-           }
   }
 }
 node {
@@ -53,5 +47,12 @@ node {
         customImage.inside {
             sh 'Code inside Container'
         }
+    }
+}
+node{
+   stage('Remove image') {
+             steps{
+               sh "docker rmi $registry:latest"
+             }
     }
 }
