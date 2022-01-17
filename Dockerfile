@@ -5,7 +5,7 @@ FROM openjdk:8
 LABEL maintainer "ganeshr@live.in"
 
 # set a health check
-CMD ["java","-Dserver.port=8888 -jar target/com.simplilearn.bsafe-{$BUILD_NUMBER}.jar"]
+RUN ["java","-Dserver.port=8888 -jar target/com.simplilearn.bsafe-{$BUILD_NUMBER}.jar"]
 
 # tell docker what port to expose
 EXPOSE 8888
