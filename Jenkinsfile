@@ -43,7 +43,7 @@ pipeline {
            stage('Execute Image'){
                def customImage = docker.build("ganeshviji1019/bsafe-application:${env.BUILD_NUMBER}")
                customImage.inside {
-                   sh 'java -Dserver.port=8888 -jar target/com.simplilearn.bsafe-${BUILDNUMBER}.jar'
+                   sh 'java -Dserver.port=8888 -jar target//com.simplilearn.bsafe-${BUILDNUMBER}.jar'
                }
            }
        }
