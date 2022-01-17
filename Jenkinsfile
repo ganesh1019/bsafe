@@ -25,7 +25,7 @@ pipeline {
         stage('Building Docker image') {
         steps{
             script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            dockerImage = docker.build registry + ":latest"
             }
          }
         }
@@ -42,14 +42,14 @@ pipeline {
 
        stage('Remove image') {
              steps{
-               sh "docker rmi $registry:$BUILD_NUMBER"
+               sh "docker rmi $registry:latest"
              }
            }
   }
 }
 node {
     stage('Execute Image'){
-        def customImage = docker.build("ganeshviji1019/bsafe-application:${env.BUILD_NUMBER}")
+        def customImage = docker.build("ganeshviji1019/bsafe-application:latest")
         customImage.inside {
             sh 'Code inside Container'
         }
