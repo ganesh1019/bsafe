@@ -1,8 +1,10 @@
 target/*
 dependency-reduced-pom.xml
-
+.idea
+*.iml
 # Others
 .classpath
 .project
 .settings/
 .vscode
+com.simplilearn.bsafe.iml
