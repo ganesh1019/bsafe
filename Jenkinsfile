@@ -42,7 +42,9 @@ pipeline {
 
          stage('Execute Image'){
                steps{
+               script{
                  sh "docker run $registry:latest"
+                 }
                }
            }
   }
@@ -51,7 +53,9 @@ pipeline {
 node{
    stage('Remove image') {
              steps{
+             script{
                sh "docker rmi $registry:latest"
+               }
              }
     }
 }
