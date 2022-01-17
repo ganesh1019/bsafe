@@ -1,0 +1,7 @@
+
+*.properties
+target/classes/bsafe/BSafe.class
+target/com.simplilearn.bsafe-0.1.0.jar
+*.class
+*.lst
+*.jar
